@@ -1,59 +1,54 @@
+
 # Attendance-automation
-A python script for attendance automation in the eduserver for nitc
 
+A python script for nitc eduserver attendance automation.
+This is a fork of the original repo by Abhinav -p (@_ai_factory) which I ported from Selenium to Mechanize for a headless script that can work on EC2 instances.
 
-External libraries used
------------------------
-1: selenium
+## External libraries used
 
-how to install selenium
------------------------
-pip install selenium
+1. Mechanize
 
-how to run script
------------------
-python auto.py
+## Mechanize installation
 
-important information regarding selenium
-----------------------------------------
-the code uses the chrome driver for automating the web browser . 
-make sure you have chrome installed and running on your pc.
+```pip3 install mechanize``` or
+```pip install mechanize``` depending on your python setup.
 
-install a chrome driver from https://chromedriver.chromium.org/downloads
+## Running the script
 
-whats inside
--------------
+```python3 auto.py``` or
+```python auto.py``` or, on Linux,
+```./auto.py```
+
+## Script details
+
 1. timetable.py
 
-contains data for timetable and links
+    Contains timetable data and links.
 
-timetable data with timetable format [[hour,minute],"subject_name"]
+    Timetable format: [[hour, minute], "subject_name"]
 
-order of slots doesn't matter .
+    Order of slots doesn't matter.
 
-give the time of slot as the time when the link for attendance comes in the eduserver 
+    Give slot time as the time when the link for attendance becomes active in eduserver.
 
 2. auto.py
 
-main script file
+    Main script file.
 
-provide user details here
+    Provide user details here.
 
-you can change the working of the script from here
+    Modify the script here.
 
-important parameters in auto.py
-------------------------------
-1:login_username 
+## Important parameters in auto.py
 
-2:login_password
+1. class_login : Eduserver login details of multiple users in the format [("username1", "password1"), ("username2", "password2")]
 
-3:max_attempts : max number of retry 
+2. max_attempts : Max number of retries
 
+## About this script
 
-about this script
------------------
-this code is written by abhinav -p . It is still under development so proceed at your own risk.
+This code is written by Abhinav -p and forked by Hadif Hameed. It is still under development so proceed at your own risk.
 
 licensed under [![license](https://img.shields.io/github/license/DAVFoundation/captain-n3m0.svg?style=flat-square)](https://github.com/AI-Factor-y/Attendance-automation/blob/main/LICENSE)
 
-any contribution to this code will be helpfull please feel free to commit
+Any contribution to this code will be helpful so please feel free to commit
