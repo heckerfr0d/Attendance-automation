@@ -13,7 +13,7 @@ import time
 
 # personal information to be filled-----------!!
 
-class_login = [("username1", "password1"), ("username2", "password2")]
+class_login = [("B190513CS", "Nims@123"), ("B190439CS", "Midhun@2000"), ("B190547CS", "Pokemonmaster@007"), ("B190468CS", "#CelluB190468CS"), ("B190534CS", ""), ("B190837CS", "vava@world1")]
 
 # --------------------------------------------!!
 
@@ -41,7 +41,7 @@ def put_attendance(sub_id, sub_code):
     global max_attempts, class_login
     attendance_marked = False
     attempts = 0
-    for username, password in class_login:
+    for (username, password) in class_login:
         while(attendance_marked == False and attempts < max_attempts):
             browser = mechanize.Browser()
             cookiejar = cookielib.LWPCookieJar()
@@ -55,14 +55,17 @@ def put_attendance(sub_id, sub_code):
             browser.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615 Fedora/3.0.1-1.fc9 Firefox/3.0.1')]
 
             try:
+                print("Attempting for user: ", username)
                 browser.open("https://eduserver.nitc.ac.in/login/index.php")
                 browser.select_form(action="https://eduserver.nitc.ac.in/login/index.php")
                 browser.form.set_all_readonly(False)
                 browser.form['username'] = username
                 browser.form['password'] = password
                 browser.submit()
-
                 browser.open(sub_code)
+                if sub_id == "math":
+                    cat = "Attendance " + datetime.date.today().strftime("%d.%m.%Y")
+                    browser.follow_link(text=cat)
                 browser.follow_link(text="Submit attendance")
 
                 time.sleep(2)
