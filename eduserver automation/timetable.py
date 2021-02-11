@@ -10,7 +10,7 @@ days = ["monday", "tuesday", "wednesday", "thursday", "friday"]
 
 # classes not in active classes are ignored by the script
 
-active_classes = ["co", "math", "mathla", "dsa", "hwl", "dsal"]
+active_classes = ["co", "mathla", "dsa", "hwl", "dsal"]
 
 
 # timetable data with timetable format [[hour,minute],"subject_name"]
@@ -19,15 +19,15 @@ active_classes = ["co", "math", "mathla", "dsa", "hwl", "dsal"]
 # for that specific course
 
 timetable = [
-    ["monday",    [[8, 0], "free"],   [[8, 56], "co"],    [[10, 10], "free"],	[[11, 11], "math"],  [[13, 0], "free"],  [[14, 0], "dsa"]],
+    ["monday",    [[8, 0], "free"],   [[8, 56], "co"],    [[10, 10], "free"],	[[11, 6], "math"],   [[13, 0], "free"],  [[14, 0], "dsa"]],
 
     ["tuesday",   [[8, 0], "free"],   [[9, 0], "env"],    [[10, 15], "dsa"],	[[11, 6], "mathla"], [[13, 0], "free"],  [[14, 0], "dsal"]],
 
     ["wednesday", [[8, 0], "free"],   [[9, 0], "free"],   [[10, 11], "co"],	    [[11, 15], "free"],  [[13, 0], "free"],  [[14, 0], "valueed"]],
 
-    ["thursday",  [[8, 0], "free"],   [[8, 56], "math"],  [[10, 15], "env"],	[[11, 11], "dsa"],   [[13, 0], "free"],  [[13, 56], "hwl"]],
+    ["thursday",  [[8, 0], "free"],   [[20, 21], "math"], [[10, 15], "env"],	[[11, 11], "dsa"],   [[13, 0], "free"],  [[13, 56], "hwl"]],
 
-    ["friday",    [[7, 56], "dsa"],   [[9, 0], "free"],   [[10, 6], "mathla"],	[[11, 11], "co"],    [[13, 0], "free"],  [[14, 0], "dsal"]]
+    ["friday",    [[7, 56], "dsa"],   [[9, 0], "free"],   [[10, 6], "mathla"],	[[11, 11], "co"],    [[13, 0], "free"],  [[14, 0], "valueed"]]
 
 ]
 
@@ -43,6 +43,5 @@ course_web_url = {
     "mathla": "https://eduserver.nitc.ac.in/mod/attendance/view.php?id=26860",
     "dsa"   : "https://eduserver.nitc.ac.in/mod/attendance/view.php?id=28265",
     "hwl"   : "https://eduserver.nitc.ac.in/mod/attendance/view.php?id=28300",
-    "dsal"  : "https://eduserver.nitc.ac.in/mod/attendance/view.php?id=29419",
-	"math"  : "https://eduserver.nitc.ac.in/course/view.php?id=1026"
+    "dsal"  : "https://eduserver.nitc.ac.in/mod/attendance/view.php?id=29419"
 }
