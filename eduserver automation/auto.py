@@ -39,9 +39,9 @@ rot_anim = '|'
 
 def put_attendance(sub_id, sub_code):
     global max_attempts, class_login
-    attendance_marked = False
-    attempts = 0
     for username, password in class_login:
+        attendance_marked = False
+        attempts = 1
         while(attendance_marked == False and attempts < max_attempts):
             browser = mechanize.Browser()
             cookiejar = cookielib.LWPCookieJar()
@@ -55,6 +55,7 @@ def put_attendance(sub_id, sub_code):
             browser.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615 Fedora/3.0.1-1.fc9 Firefox/3.0.1')]
 
             try:
+                print(f"Attempt {attempts} for user {username}:")
                 browser.open("https://eduserver.nitc.ac.in/login/index.php")
                 browser.select_form(action="https://eduserver.nitc.ac.in/login/index.php")
                 browser.form.set_all_readonly(False)
@@ -75,8 +76,9 @@ def put_attendance(sub_id, sub_code):
                 browser.submit(id="id_submitbutton")
                 time.sleep(1)
                 attendance_marked = True
+                print(f"{sub_id} attendance marked for user {username} in {attempts} attempts")
             except:
-                print("trying again..")
+                print("Failed... Retrying...")
                 time.sleep(10)
                 attempts += 1
                 print(f"---> attempt : {attempts} <---")
